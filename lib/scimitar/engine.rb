@@ -4,7 +4,7 @@ module Scimitar
   class Engine < ::Rails::Engine
     isolate_namespace Scimitar
 
-    config.autoload_paths = %W(
+    config.autoload_paths += %W(
       #{root}/app/controllers
       #{root}/app/models
     )
