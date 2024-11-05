@@ -4,6 +4,11 @@ module Scimitar
   class Engine < ::Rails::Engine
     isolate_namespace Scimitar
 
+    config.autoload_paths = %W(
+      #{root}/app/controllers
+      #{root}/app/models
+    )
+
     Mime::Type.register 'application/scim+json', :scim
 
     ActionDispatch::Request.parameter_parsers[Mime::Type.lookup('application/scim+json').symbol] = lambda do |body|
